@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Manufacturer</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @instruments.each do |inst| %>
+      <tr>
+        <td><%= link_to inst.name, inst %></td>
+        <td><%= link_to inst.manufacturer.name, inst.manufacturer%></td>
+        <td><%= link_to inst.type.name, inst.type%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Instrument', new_instrument_path %>

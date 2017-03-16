@@ -1,0 +1,18 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Founded in</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @manufacturers.each do |man| %>
+      <tr>
+        <td><%= link_to man.name, man %></td>
+        <td><%= man.year %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Manufacturer', new_manufacturer_path %>

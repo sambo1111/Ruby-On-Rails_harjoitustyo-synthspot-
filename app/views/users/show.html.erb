@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Current studio setup</strong>
+  <ul>
+    <% @user.instruments.each do |inst| %>
+      <li> <%= link_to inst.name, inst %> </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <% if current_user and current_user == @user %>
+    <%= link_to 'Add instrument to studio', new_user_instrument_path%>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

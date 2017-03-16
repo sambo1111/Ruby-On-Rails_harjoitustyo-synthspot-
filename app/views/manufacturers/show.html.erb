@@ -1,0 +1,25 @@
+<h2> <%= @manufacturer.name %> </h2>
+<p> <%= "Founded in #{@manufacturer.year}" %>
+<p> <%= @manufacturer.info %> </p>
+
+<h3> Instruments </h3>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @manufacturer.instruments.each do |inst| %>
+      <tr>
+        <td><%= link_to inst.name, inst %></td>
+        <td><%= link_to inst.type.name, inst.type %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_manufacturer_path(@manufacturer) %> |
+<%= link_to 'Back', manufacturers_path %>
