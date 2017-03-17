@@ -1,6 +1,6 @@
 class TypesController < ApplicationController
   before_action :set_type, only: [:show, :edit, :update, :destroy]
-
+  before_action :ensure_that_is_admin, only: [:new, :create, :edit, :destroy, :update]
   # GET /types
   # GET /types.json
   def index

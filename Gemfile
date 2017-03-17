@@ -40,6 +40,14 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.5'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'simplecov', require: false
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :production do

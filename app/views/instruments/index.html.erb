@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h2> List of Instruments </h2>
 
 <table class="table table-hover">
   <thead>
@@ -19,4 +19,6 @@
   </tbody>
 </table>
 
-<%= link_to 'New Instrument', new_instrument_path %>
+<% if current_user and current_user.admin? == true %>
+  <%= link_to('New Instrument', new_instrument_path, class:"btn btn-primary") %>
+<% end %>
