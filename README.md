@@ -12,6 +12,9 @@ Käyttäjät voivat myös luoda tiettyyn käyttötarkoitukseen perustuvia laites
 # Testaus
 Testaus toteutetaan rspecillä ja capybaralla.
 
+# Luokkakaavio
+![alt text](https://github.com/sambo1111/synthspot/blob/master/WEPALABRA.jpg "Luokkakaavio")
+
 ...
 
 # Tuntikirjanpito
