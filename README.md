@@ -13,7 +13,7 @@ Käyttäjät voivat myös luoda tiettyyn käyttötarkoitukseen perustuvia laites
 Testaus toteutetaan rspecillä ja capybaralla.
 
 # Luokkakaavio
-![alt text](https://github.com/sambo1111/synthspot/blob/master/WEPALABRA.jpg "Luokkakaavio")
+![alt text](https://github.com/sambo1111/synthspot/blob/master/WEPALABRA%20(1).jpg)
 
 ...
 
