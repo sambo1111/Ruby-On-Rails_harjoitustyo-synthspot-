@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :suggestions
+  resources :setup_instruments
+  resources :instrument_setups
   resources :user_instruments
   resources :users
   resources :types

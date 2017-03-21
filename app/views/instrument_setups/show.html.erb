@@ -1,0 +1,34 @@
+<h2> <%= @instrument_setup.name %>
+     <% if current_user == @instrument_setup.user %>
+        <%= link_to('Delete', @instrument_setup, method: :delete, class:"btn btn-danger") %>
+      <% end %> </h2>
+
+<p>
+  <%= @instrument_setup.info %>
+</p>
+
+<p>
+  <strong>Created by</strong>
+  <%= link_to @instrument_setup.user.username, user_path(@instrument_setup.user) %>
+</p>
+
+<p>
+  <strong>Instruments in this setup </strong>
+    <% @instrument_setup.setup_instruments.each do |inst| %>
+      <li> <%= link_to inst.instrument.name, inst.instrument %>
+      <% if current_user == @instrument_setup.user %>
+        <%= link_to('Delete', setup_instrument_path(inst),method: :delete, class:"btn btn-danger") %> </li>
+      <% end %>
+    <% end %>
+</p>
+
+<% if current_user and current_user == @instrument_setup.user %>
+<h2> Add Instrument </h2>
+  <%= form_for(@setup_instrument) do |f| %>
+    <%= f.hidden_field :instrument_setup_id %>
+    Instrument: <%= f.select :instrument_id, options_from_collection_for_select(@instruments, :id, :to_s, select:@setup_instrument.instrument_id) %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
+<%= edit_and_destroy_buttons(@instrument_setup) %>

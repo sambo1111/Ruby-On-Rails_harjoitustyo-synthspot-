@@ -1,0 +1,16 @@
+<p>
+  <strong>Topic:</strong>
+  <%= @suggestion.topic %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @suggestion.info %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= link_to @suggestion.user.username, @suggestion.user %>
+</p>
+
+<%= link_to('Delete suggestion', @suggestion, method: :delete, class:"btn btn-danger") %>

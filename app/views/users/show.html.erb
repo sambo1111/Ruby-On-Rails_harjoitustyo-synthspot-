@@ -1,15 +1,21 @@
-<p id="notice"><%= notice %></p>
+<h2> <%= @user.username %> </h2>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<br>
 
 <p>
   <strong>Current studio setup</strong>
   <ul>
     <% @user.instruments.each do |inst| %>
       <li> <%= link_to inst.name, inst %> </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong> <%= "Setups made by #{@user.username}" %> </strong>
+  <ul>
+    <% @user.instrument_setups.each do |setup| %>
+      <li> <%= link_to setup.name, setup %> </li>
     <% end %>
   </ul>
 </p>

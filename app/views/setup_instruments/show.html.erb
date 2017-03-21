@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Instrument setup:</strong>
+  <%= @setup_instrument.instrument_setup_id %>
+</p>
+
+<p>
+  <strong>Instrument:</strong>
+  <%= @setup_instrument.instrument_id %>
+</p>
+
+<%= link_to 'Edit', edit_setup_instrument_path(@setup_instrument) %> |
+<%= link_to 'Back', setup_instruments_path %>

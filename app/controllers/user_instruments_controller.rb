@@ -1,6 +1,6 @@
 class UserInstrumentsController < ApplicationController
   before_action :set_user_instrument, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_that_signed_in, except: [:index, :show, :new, :create]
+  before_action :ensure_that_signed_in, except: [:index, :show]
 
   # GET /user_instruments
   # GET /user_instruments.json
@@ -30,7 +30,7 @@ class UserInstrumentsController < ApplicationController
     @user_instrument.user_id = current_user.id if current_user
 
     respond_to do |format|
-      if @user_instrument.save
+      if current_user and @user_instrument.save
         current_user.user_instruments << @user_instrument
         format.html { redirect_to current_user, notice: 'User instrument was successfully created.' }
         format.json { render :show, status: :created, location: @user_instrument }
