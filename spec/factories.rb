@@ -7,6 +7,13 @@ FactoryGirl.define do
     type
   end
 
+  factory :user do
+    username "admin"
+    password "salainen"
+    password_confirmation "salainen"
+    admin true
+  end
+
   factory :type do
     name "Drum Machines"
     info "joda joda"
@@ -18,8 +25,9 @@ FactoryGirl.define do
     info "yadda yadda"
   end
 
-  factory :user do
-
+  factory :suggestion do
+    topic "newstuff"
+    info "jee"
+    user
   end
-
 end

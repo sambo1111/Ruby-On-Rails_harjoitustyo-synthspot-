@@ -23,3 +23,4 @@ Testaus toteutetaan rspecillä ja capybaralla.
 |16.3|6h|
 |17.3|4h|
 |21.3|5h|
+|22.3|4h|

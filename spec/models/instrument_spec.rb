@@ -25,14 +25,4 @@ RSpec.describe Instrument, type: :model do
     expect(i).not_to be_valid
     expect(Instrument.count).to eq(0)
   end
-
-  it "is not saved if exists another with same name" do
-
-    type1 = FactoryGirl.create(:type)
-
-    i = Instrument.create name:"TR-808", type:type1
-    i1 = Instrument.create name:"TR-808", year:1990, type:type1
-    expect(i1).not_to be_valid
-    expect(Instrument.count).to eq(1)
-  end
 end

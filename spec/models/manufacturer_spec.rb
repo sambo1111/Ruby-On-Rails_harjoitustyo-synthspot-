@@ -18,11 +18,4 @@ RSpec.describe Manufacturer, type: :model do
     expect(m).not_to be_valid
     expect(Manufacturer.count).to eq(0)
   end
-
-  it "is not saved if exists another with same name" do
-    m = Manufacturer.create name:"Roland", year:1990
-    m1 = Manufacturer.create name:"Roland", year:1999
-    expect(m1).not_to be_valid
-    expect(Manufacturer.count).to eq(1)
-  end
 end

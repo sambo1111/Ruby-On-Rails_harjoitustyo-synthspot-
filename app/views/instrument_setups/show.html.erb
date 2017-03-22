@@ -26,7 +26,7 @@
 <h2> Add Instrument </h2>
   <%= form_for(@setup_instrument) do |f| %>
     <%= f.hidden_field :instrument_setup_id %>
-    Instrument: <%= f.select :instrument_id, options_from_collection_for_select(@instruments, :id, :to_s, select:@setup_instrument.instrument_id) %>
+    Instrument: <%= f.select :instrument_id, options_from_collection_for_select(@instruments - @instrument_setup.instruments | @instrument_setup.instruments - @instruments, :id, :to_s, select:@setup_instrument.instrument_id) %>
     <%= f.submit %>
   <% end %>
 <% end %>
