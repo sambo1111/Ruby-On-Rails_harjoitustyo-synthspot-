@@ -11,6 +11,11 @@
       <% end %>
   </li>
 
+  <li> <%= link_to messages_path do %>
+        <i class="glyphicon glyphicon-envelope"></i> Messages
+       <% end %>
+  </li>
+
   <li> <%= link_to signout_path, method: :delete do %>
         <i class="glyphicon glyphicon-log-out"></i> Sign Out
        <% end %>

@@ -2,13 +2,6 @@ require 'rails_helper'
 
 describe "User" do
 
-  it "index page lists all users" do
-    FactoryGirl.create(:user, username:"jyrgen", admin:false)
-    visit users_path
-
-    expect(page).to have_content 'jyrgen'
-  end
-
   describe "who has signed in" do
     let!(:user) { FactoryGirl.create(:user, username:"eetvart", admin:false) }
 
@@ -17,6 +10,14 @@ describe "User" do
       fill_in('username', with:'eetvart')
       fill_in('password', with:'salainen')
       click_button('Log in')
+    end
+
+    it "index page lists all users" do
+
+      FactoryGirl.create(:user, username:"jyrgen", admin:false)
+      visit users_path
+
+      expect(page).to have_content 'jyrgen'
     end
 
     it "can sign out properly" do
@@ -59,7 +60,7 @@ describe "User" do
       click_button("Create User")
 
       expect(User.count).to eq(1)
-      expect(page).to have_content 'bestuser'
+      expect(page).to have_content 'User was successfully created.'
     end
 
   end

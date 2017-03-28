@@ -2,8 +2,8 @@
 <li> <%= link_to 'Manufacturers', manufacturers_path %> </li>
 <li> <%= link_to 'Instrument types', types_path %> </li>
 <li> <%= link_to 'Instrument setups', instrument_setups_path %> </li>
-<li> <%= link_to 'Users', users_path %> </li>
 
 <% if current_user %>
+  <li> <%= link_to 'Users', users_path %> </li>
   <li> <%= link_to 'Leave a suggestion', new_suggestion_path %> </li>
 <% end %>
