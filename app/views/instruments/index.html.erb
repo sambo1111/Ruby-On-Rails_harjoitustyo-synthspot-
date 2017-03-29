@@ -1,4 +1,16 @@
+<br>
+<div class="panel panel-default">
+  <div class="panel-body">
+    Most famous instrument at the moment is <%= link_to Instrument.most_famous, Instrument.most_famous %> !
+  </div>
+</div>
+
 <h2> List of Instruments </h2>
+
+<%= form_tag(instruments_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag(:search_instrument, params[:search_instrument], placeholder: "Search Instruments") %>
+  <%= submit_tag "Find" %>
+<% end %>
 
 <table class="table table-hover">
   <thead>

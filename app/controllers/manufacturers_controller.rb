@@ -4,7 +4,11 @@ class ManufacturersController < ApplicationController
   # GET /manufacturers
   # GET /manufacturers.json
   def index
-    @manufacturers = Manufacturer.all
+    if params[:search_manufacturer]
+      @manufacturers = Manufacturer.search(params[:search_manufacturer])
+    else
+      @manufacturers = Manufacturer.all
+    end
   end
 
   # GET /manufacturers/1

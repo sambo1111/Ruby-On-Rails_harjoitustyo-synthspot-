@@ -6,4 +6,12 @@ class Manufacturer < ActiveRecord::Base
   def to_s
     name
   end
+
+  def self.search(content)
+    if content == ""
+      Manufacturer.all
+    else
+      Manufacturer.where("name LIKE ?", "%#{content}%")
+    end
+  end
 end

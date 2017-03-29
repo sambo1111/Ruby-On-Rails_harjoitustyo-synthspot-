@@ -13,7 +13,7 @@ Käyttäjät voivat myös luoda tiettyyn käyttötarkoitukseen perustuvia laites
 Testaus toteutetaan rspecillä ja capybaralla.
 
 # Luokkakaavio
-![alt text](https://github.com/sambo1111/synthspot/blob/master/tietokantakaavio.jpg)
+![alt text](https://github.com/sambo1111/synthspot/blob/master/tietokantakaavio_2.jpg)
 
 ...
 
@@ -25,3 +25,4 @@ Testaus toteutetaan rspecillä ja capybaralla.
 |21.3|5h|
 |22.3|4h|
 |28.3|4h|
+|29.3|4h|

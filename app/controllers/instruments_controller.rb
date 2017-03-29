@@ -5,7 +5,11 @@ class InstrumentsController < ApplicationController
   # GET /instruments
   # GET /instruments.json
   def index
-    @instruments = Instrument.all
+    if params[:search_instrument]
+      @instruments = Instrument.search(params[:search_instrument])
+    else
+      @instruments = Instrument.all
+    end
   end
 
   # GET /instruments/1
