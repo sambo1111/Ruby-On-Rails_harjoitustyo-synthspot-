@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2><%= @review.topic %>
+      <% if current_user == @review.user %>
+        <%= link_to('Edit', edit_review_path(@review), class:"btn btn-primary") %>
+      <% end %>
+  </h2>
+</p>
+
+<div class="panel panel-default", style="width: 40%">
+  <div class="panel-body">
+      <%= @review.body %>
+  </div>
+</div>
+
+<p>
+  <strong>Score:</strong>
+  <%= @review.score %>
+</p>
+
+<p>
+  <strong>Writer:</strong> <%= link_to @review.user.username, @review.user %>
+</p>

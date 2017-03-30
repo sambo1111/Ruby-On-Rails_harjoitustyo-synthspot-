@@ -1,3 +1,10 @@
+<% if current_user %>
+  <li> <%= link_to new_suggestion_path do %>
+        <i class="glyphicon glyphicon-edit"></i>
+      <% end %>
+  </li>
+<% end %>
+
 <li> <%= link_to 'Instruments', instruments_path %> </li>
 <li> <%= link_to 'Manufacturers', manufacturers_path %> </li>
 <li> <%= link_to 'Instrument types', types_path %> </li>
@@ -5,5 +12,4 @@
 
 <% if current_user %>
   <li> <%= link_to 'Users', users_path %> </li>
-  <li> <%= link_to 'Leave a suggestion', new_suggestion_path %> </li>
 <% end %>

@@ -28,8 +28,8 @@ class TagsController < ApplicationController
 
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        format.json { render :show, status: :created, location: @tag }
+        format.html { redirect_to @tag.instrument_setup, notice: 'Tag was successfully created.' }
+        format.json { render :show, status: :created, location: @tag.instrument_setup }
       else
         format.html { render :new }
         format.json { render json: @tag.errors, status: :unprocessable_entity }

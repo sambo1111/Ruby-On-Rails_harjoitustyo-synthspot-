@@ -1,34 +1,65 @@
-<h2> <%= @instrument_setup.name %>
-     <% if current_user == @instrument_setup.user %>
-        <%= link_to('Delete', @instrument_setup, method: :delete, class:"btn btn-danger") %>
-      <% end %> </h2>
+<h2> <%= @instrument_setup.name %> </h2>
 
 <p>
   <%= @instrument_setup.info %>
 </p>
 
 <p>
-  <strong>Created by</strong>
+  <strong>Created by: </strong>
   <%= link_to @instrument_setup.user.username, user_path(@instrument_setup.user) %>
 </p>
 
-<p>
-  <strong>Instruments in this setup </strong>
+<h3> Instruments in this setup </h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
     <% @instrument_setup.setup_instruments.each do |inst| %>
-      <li> <%= link_to inst.instrument.name, inst.instrument %>
-      <% if current_user == @instrument_setup.user %>
-        <%= link_to('Delete', setup_instrument_path(inst),method: :delete, class:"btn btn-danger") %> </li>
-      <% end %>
+      <tr>
+        <td><%= link_to inst.instrument.name, inst.instrument %></td>
+        <td> <% if current_user == @instrument_setup.user %>
+          <%= link_to('Delete', setup_instrument_path(inst),method: :delete, class:"btn btn-danger") %>
+        <% end %>
+        </td>
+      </tr>
     <% end %>
-</p>
+  </tbody>
+</table>
 
-<% if current_user and current_user == @instrument_setup.user %>
-<h2> Add Instrument </h2>
-  <%= form_for(@setup_instrument) do |f| %>
-    <%= f.hidden_field :instrument_setup_id %>
-    Instrument: <%= f.select :instrument_id, options_from_collection_for_select(@instruments - @instrument_setup.instruments | @instrument_setup.instruments - @instruments, :id, :to_s, select:@setup_instrument.instrument_id) %>
-    <%= f.submit %>
-  <% end %>
+  <h4>Tags</h4>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <% @instrument_setup.tags.each do |t| %>
+        #<%= t.name %>,
+      <% end %>
+    </div>
+  </div>
+
+<% if current_user == @instrument_setup.user %>
+  <div class="panel panel-default">
+    <div class="panel-heading"><h4>Edit your setup</h4></div>
+    <div class="panel-body">
+        <h4> Add Instrument </h4>
+          <%= form_for(@setup_instrument) do |f| %>
+          <%= f.hidden_field :instrument_setup_id %>
+          Instrument: <%= f.select :instrument_id, options_from_collection_for_select(@instruments - @instrument_setup.instruments | @instrument_setup.instruments - @instruments, :id, :to_s, select:@setup_instrument.instrument_id) %>
+          <%= f.submit %>
+        <% end %>
+      <h4> Add Tag </h4>
+        <%= form_for(@tag) do |f| %>
+          <%= f.hidden_field :instrument_setup_id %>
+          <%= f.text_field :name %>
+          <%= f.submit %>
+        <% end %>
+
+      <br><%= link_to('Delete this setup', @instrument_setup, method: :delete, class:"btn btn-danger") %>
+    </div>
+  </div>
 <% end %>
+
 
 <%= edit_and_destroy_buttons(@instrument_setup) %>

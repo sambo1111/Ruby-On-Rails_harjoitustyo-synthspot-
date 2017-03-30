@@ -15,6 +15,7 @@ class InstrumentsController < ApplicationController
   # GET /instruments/1
   # GET /instruments/1.json
   def show
+    session[:instrument_to_be_reviewed] = params[:id]
   end
 
   # GET /instruments/new

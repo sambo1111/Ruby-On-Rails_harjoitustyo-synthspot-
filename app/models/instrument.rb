@@ -3,7 +3,8 @@ class Instrument < ActiveRecord::Base
   has_many :users, through: :user_instruments
   has_many :setup_instruments
   has_many :instrument_setups, through: :setup_instruments
-  
+  has_many :reviews
+
   belongs_to :manufacturer
   belongs_to :type
   validates :name, length: {minimum: 2}

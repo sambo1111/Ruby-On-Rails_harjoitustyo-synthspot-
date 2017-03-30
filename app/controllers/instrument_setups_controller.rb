@@ -5,7 +5,11 @@ class InstrumentSetupsController < ApplicationController
   # GET /instrument_setups
   # GET /instrument_setups.json
   def index
-    @instrument_setups = InstrumentSetup.all
+    if params[:search_instrument_setup]
+      @instrument_setups = InstrumentSetup.search(params[:search_instrument_setup])
+    else
+      @instrument_setups = InstrumentSetup.all
+    end
   end
 
   # GET /instrument_setups/1
@@ -13,6 +17,10 @@ class InstrumentSetupsController < ApplicationController
   def show
     @setup_instrument = SetupInstrument.new
     @setup_instrument.instrument_setup = @instrument_setup
+
+    @tag = Tag.new
+    @tag.instrument_setup = @instrument_setup
+
     @instruments = Instrument.all
   end
 
