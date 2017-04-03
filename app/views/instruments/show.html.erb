@@ -1,8 +1,10 @@
 <h2> <%= @instrument.name %> </h2>
 
-<p> Introduced in <%= @instrument.year %> </p>
+<%= image_tag(@instrument.image_link, :class => "main_image", size: "400x400") %>
 
-<p> <%= @instrument.info %> </p>
+<p> <i> Introduced in <%= @instrument.year %> </i> </p>
+
+<p><%= @instrument.info %> </p>
 
 <p>
   <strong>Manufacturer:</strong>

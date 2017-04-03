@@ -20,6 +20,13 @@ class InstrumentSetupsController < ApplicationController
 
     @tag = Tag.new
     @tag.instrument_setup = @instrument_setup
+    
+    @like = Like.new
+
+    if @instrument_setup.likers.exclude? current_user
+      @like.instrument_setup = @instrument_setup
+      @like.user = current_user
+    end
 
     @instruments = Instrument.all
   end

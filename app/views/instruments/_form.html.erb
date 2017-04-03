@@ -24,6 +24,10 @@
     <%= f.text_area :info %>
   </div>
   <div class="field">
+    <%= f.label :image_link %><br>
+    <%= f.text_field :image_link %>
+  </div>
+  <div class="field">
     Manufacturer <br>
     <%= f.select :manufacturer_id, options_from_collection_for_select(@manufacturers, :id, :to_s, selected:@instrument.manufacturer_id) %>
   </div>

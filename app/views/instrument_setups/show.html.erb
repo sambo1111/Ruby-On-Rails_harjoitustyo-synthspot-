@@ -1,4 +1,6 @@
-<h2> <%= @instrument_setup.name %> </h2>
+<h2>
+  <%= @instrument_setup.name %>
+</h2>
 
 <p>
   <%= @instrument_setup.info %>
@@ -8,6 +10,18 @@
   <strong>Created by: </strong>
   <%= link_to @instrument_setup.user.username, user_path(@instrument_setup.user) %>
 </p>
+
+<div style="width: 100px;" class="panel panel-default">
+  <div class="panel-heading">
+    <%= form_for(@like) do |f| %>
+      <%= f.hidden_field :instrument_setup_id %>
+      <%= f.hidden_field :user_id %>
+      <%= button_tag(type: 'submit', class: "button-like", :disabled => @instrument_setup.likers.include?(current_user) == true) do %>
+        <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; <%= @instrument_setup.likes.count %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
 <h3> Instruments in this setup </h3>
 <table class="table table-hover">
@@ -34,29 +48,38 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <% @instrument_setup.tags.each do |t| %>
-        #<%= t.name %>,
+        #<%= t.name %> &nbsp;
       <% end %>
     </div>
   </div>
 
 <% if current_user == @instrument_setup.user %>
-  <div class="panel panel-default">
-    <div class="panel-heading"><h4>Edit your setup</h4></div>
-    <div class="panel-body">
-        <h4> Add Instrument </h4>
-          <%= form_for(@setup_instrument) do |f| %>
-          <%= f.hidden_field :instrument_setup_id %>
-          Instrument: <%= f.select :instrument_id, options_from_collection_for_select(@instruments - @instrument_setup.instruments | @instrument_setup.instruments - @instruments, :id, :to_s, select:@setup_instrument.instrument_id) %>
-          <%= f.submit %>
-        <% end %>
-      <h4> Add Tag </h4>
-        <%= form_for(@tag) do |f| %>
-          <%= f.hidden_field :instrument_setup_id %>
-          <%= f.text_field :name %>
-          <%= f.submit %>
-        <% end %>
 
-      <br><%= link_to('Delete this setup', @instrument_setup, method: :delete, class:"btn btn-danger") %>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse1">Edit your setup</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body">
+          <h4> Add Instrument </h4>
+            <%= form_for(@setup_instrument) do |f| %>
+            <%= f.hidden_field :instrument_setup_id %>
+            Instrument: <%= f.select :instrument_id, options_from_collection_for_select(@instruments - @instrument_setup.instruments | @instrument_setup.instruments - @instruments, :id, :to_s, select:@setup_instrument.instrument_id) %>
+            <%= f.submit %>
+          <% end %>
+          <h4> Add Tag </h4>
+            <%= form_for(@tag) do |f| %>
+              <%= f.hidden_field :instrument_setup_id %>
+              <%= f.text_field :name %>
+              <%= f.submit %>
+            <% end %>
+
+          <br><%= link_to('Delete this setup', @instrument_setup, method: :delete, class:"btn btn-danger") %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

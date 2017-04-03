@@ -3,6 +3,8 @@ class InstrumentSetup < ActiveRecord::Base
   has_many :setup_instruments
   has_many :instruments, through: :setup_instruments
   has_many :tags
+  has_many :likes
+  has_many :likers, through: :likes, source: :user
 
   def self.search(content)
     if content == ""
