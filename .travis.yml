@@ -1,10 +1,16 @@
 language: ruby
-
 rvm:
- - 2.3.1
-
+- 2.3.1
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: AOe+yaEIW7ommqfOizufzsNYnj68FKg669EcRILyJuu/yUzZUmpPcYCFkiwhIwr/Z1db11rsXI9HwB/xyG4ZQ/x1AQR4/bf1PLV8I+yy0m1mXsakPkiKoBTuXNZRyJUjFeNASuBjBQz+hh+DtUiLPB+lE4JvFcf+aSlw/DHO0x3EL18jjYOfqoIUO1takq2oqtl05nP0o1uc9G168x40w0pWuK3uI++u1C7VcaSLqSioFOGJ+Z6ctKKwAmG0KmanJ2nTBBZ29a2JddxcYkg8hLO15UGur68opTyCJZYKHNwBdWXpXiZFh5iD5f/ueYBVnK8lP3vHRRbVy/I7jj+HFQGrl8uIHgew8xoK3R3bctqD1gng6O1U0K3ATxzQoEeOCgebipG4pmO0WTs3Y63zTrMqJ0Ase/Z0ZJnronNo6kchUR7uQyCL99D7trEjQvVN4RIZTGE0kev5DEiW28kdpetMo6aK9PMrkbfBYYczJxAj7nzLNa03B64lYlhK8aiu4/eH8YujUQi7d8QlM+h3qG0bFFs+prHQ07TshWQjfvPoJrYHEkTRPgFYK4+iUTvoBilzeCFNdUP6X7YsO0cB9naZ8tVblGK6+MNoWW7ZXqwp6r/t4M+T5H+VoWi/wZ7ER1B36XV3EIxO4VeCSEd3AL3vVVzP+slBRRzCfsmx/7g=
+  app: morning-castle-98652
+  on:
+    repo: sambo1111/synthspot
+  run: "rake db:migrate"
