@@ -49,4 +49,28 @@ describe "Instrument setups page" do
 
     expect(page).not_to have_content 'Jupiter-8'
   end
+
+  it "allows user to destroy an instrument belonging to setup" do
+
+    select("Jupiter-8", from:"setup_instrument_instrument_id")
+    click_button('Create Setup instrument')
+
+    expect{
+      click_link("Delete")
+    }.to change{InstrumentSetup.first.setup_instruments.count}.from(1).to(0)
+
+  end
+
+  it "allows user to edit instrumentsetup name and info correctly" do
+
+    click_link 'Edit name and info'
+    fill_in('Name', with:"Kool setup")
+    fill_in('Info', with:"yes sir")
+    click_button("Update Instrument setup")
+
+    expect(page).to have_content("eetvart")
+    expect(page).to have_content("Kool setup")
+    expect(page).to have_content("yes sir")
+
+  end
 end

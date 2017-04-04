@@ -1,5 +1,8 @@
 <h2>
   <%= @instrument_setup.name %>
+  <% if current_user == @instrument_setup.user %>
+    <%= link_to('Edit name and info', edit_instrument_setup_path(@instrument_setup), class:"btn btn-primary") %>
+  <% end %>
 </h2>
 
 <p>
@@ -83,6 +86,3 @@
     </div>
   </div>
 <% end %>
-
-
-<%= edit_and_destroy_buttons(@instrument_setup) %>

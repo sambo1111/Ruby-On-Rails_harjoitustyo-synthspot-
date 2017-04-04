@@ -1,6 +1,58 @@
 require 'rails_helper'
 
 describe "Instrument types page" do
+
+  describe "allows admin to" do
+
+    let!(:user){FactoryGirl.create(:user)}
+
+    before :each do
+      visit signin_path
+      fill_in('username', with:'admin')
+      fill_in('password', with:'salainen')
+      click_button('Log in')
+    end
+
+    it "create new instrument type" do
+
+      visit types_path
+      click_link "New Instrument Type"
+      fill_in('Name', with:'Synthesizers')
+      fill_in('Info', with:'jepjep')
+      click_button('Create Type')
+
+      expect(Type.count).to eq(1)
+      expect(page).to have_content 'Synthesizers'
+    end
+
+    it "destroy a type" do
+
+      FactoryGirl.create(:type)
+
+      visit types_path
+      click_link "Drum Machines"
+      expect{click_link("Destroy")}.to change{Type.count}.from(1).to(0)
+      expect(page).not_to have_content("Drum Machines")
+    end
+
+    it "edit a type" do
+
+      FactoryGirl.create(:type)
+
+      visit types_path
+      click_link "Drum Machines"
+      click_link "Edit"
+
+      fill_in('Name', with:"Rummut")
+      fill_in('Info', with:"very kool, nice")
+      click_button('Update Type')
+
+      expect(page).to have_content("Type was successfully updated.")
+      expect(page).to have_content("Rummut")
+      expect(page).to have_content("very kool, nice")
+    end
+  end
+
   it "lists existing instrument types" do
 
     FactoryGirl.create(:type, name:"Drum Machines")
@@ -21,25 +73,6 @@ describe "Instrument types page" do
     expect(page).to have_content 'jeps'
   end
 
-  it "allows admin to create new instrument type" do
-
-    FactoryGirl.create(:user)
-
-    visit signin_path
-    fill_in('username', with:'admin')
-    fill_in('password', with:'salainen')
-    click_button('Log in')
-
-    visit types_path
-    click_link "New Instrument Type"
-    fill_in('Name', with:'Synthesizers')
-    fill_in('Info', with:'jepjep')
-    click_button('Create Type')
-
-    expect(Type.count).to eq(1)
-    expect(page).to have_content 'Synthesizers'
-
-  end
 
   it "regular user cant create new instrument type" do
 
@@ -54,7 +87,7 @@ describe "Instrument types page" do
     expect(page).not_to have_content 'New Instrument Type'
   end
 
-  describe "when on instrument's page, " do
+  describe "when on type's page, " do
 
       it "lists all instruments that belong to this type and allows user to go to these instruments' pages" do
 

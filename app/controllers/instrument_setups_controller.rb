@@ -60,13 +60,16 @@ class InstrumentSetupsController < ApplicationController
   # PATCH/PUT /instrument_setups/1
   # PATCH/PUT /instrument_setups/1.json
   def update
-    respond_to do |format|
-      if @instrument_setup.update(instrument_setup_params)
-        format.html { redirect_to @instrument_setup, notice: 'Instrument setup was successfully updated.' }
-        format.json { render :show, status: :ok, location: @instrument_setup }
-      else
-        format.html { render :edit }
-        format.json { render json: @instrument_setup.errors, status: :unprocessable_entity }
+
+    if current_user == @instrument_setup.user
+      respond_to do |format|
+        if @instrument_setup.update(instrument_setup_params)
+          format.html { redirect_to @instrument_setup, notice: 'Instrument setup was successfully updated.' }
+          format.json { render :show, status: :ok, location: @instrument_setup }
+        else
+          format.html { render :edit }
+          format.json { render json: @instrument_setup.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

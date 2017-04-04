@@ -18,10 +18,6 @@ class SetupInstrumentsController < ApplicationController
     @setup_instrument = SetupInstrument.new
   end
 
-  # GET /setup_instruments/1/edit
-  def edit
-  end
-
   # POST /setup_instruments
   # POST /setup_instruments.json
   def create
@@ -33,20 +29,6 @@ class SetupInstrumentsController < ApplicationController
         format.json { render :show, status: :created, location: @setup_instrument.instrument_setup }
       else
         format.html { redirect_to @setup_instrument.instrument_setup }
-        format.json { render json: @setup_instrument.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /setup_instruments/1
-  # PATCH/PUT /setup_instruments/1.json
-  def update
-    respond_to do |format|
-      if @setup_instrument.update(setup_instrument_params)
-        format.html { redirect_to @setup_instrument, notice: 'Setup instrument was successfully updated.' }
-        format.json { render :show, status: :ok, location: @setup_instrument }
-      else
-        format.html { render :edit }
         format.json { render json: @setup_instrument.errors, status: :unprocessable_entity }
       end
     end
