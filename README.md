@@ -1,6 +1,6 @@
 Heroku: morning-castle-98652.herokuapp.com
 
-[![Build Status](https://travis-ci.org/sambo1111/synthspot.png)](https://travis-ci.org/mluukkai/ratebeer-public)
+[![Build Status](https://travis-ci.org/sambo1111/synthspot.png)](https://travis-ci.org/sambo1111/synthspot)
 
 # Projektin kuvaus
 Sovellus on tietokanta musiikkilaitteille(esim. rumpukoneet, syntetisaattorit) ja niiden valmistajille. Sovelluksen tarkoitus on siis tarjota käyttäjillä tietoa eri musiikkilaitteista, niiden käyttötarkoituksista ja historiasta.
