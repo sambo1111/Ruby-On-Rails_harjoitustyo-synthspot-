@@ -26,4 +26,14 @@ RSpec.describe User, type: :model do
     expect(user2).not_to be_valid
     expect(User.count).to eq(1)
   end
+
+  it "is found if searched with a right word" do
+    user1 = User.create username:"jimihendrix", password:"salainen", password_confirmation:"salainen"
+    user2 = User.create username:"usainbolt", password:"salainen", password_confirmation:"salainen"
+
+    result_users = User.search("usain")
+
+    expect(result_users.size).to eq(1)
+    expect(result_users.first.username).to eq(user2.username)
+  end
 end

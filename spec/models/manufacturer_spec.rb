@@ -18,4 +18,15 @@ RSpec.describe Manufacturer, type: :model do
     expect(m).not_to be_valid
     expect(Manufacturer.count).to eq(0)
   end
+
+  it "is found if searched with a right word" do
+    m1 = Manufacturer.create name:"Korg", year:1980
+    m2 = Manufacturer.create name:"Roland", year:1980
+
+    result_manufacturers = Manufacturer.search("kor")
+
+    expect(result_manufacturers.size).to eq(1)
+    expect(result_manufacturers.first.name).to eq(m1.name)
+
+  end
 end

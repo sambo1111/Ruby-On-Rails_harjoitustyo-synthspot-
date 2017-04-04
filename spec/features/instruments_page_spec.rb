@@ -80,16 +80,38 @@ describe "Instruments page" do
     end
   end
 
-  it "regular user cant create new manufacturer" do
+  describe "regular user" do
 
-    FactoryGirl.create(:user, username:"regularuser", admin:false)
+    let!(:user) { FactoryGirl.create(:user, username:"regularuser", admin:false) }
 
-    visit signin_path
-    fill_in('username', with:'regularuser')
-    fill_in('password', with:'salainen')
-    click_button('Log in')
+    before :each do
+      visit signin_path
+      fill_in('username', with:'regularuser')
+      fill_in('password', with:'salainen')
+      click_button('Log in')
+    end
 
-    visit instruments_path
-    expect(page).not_to have_content 'New Instrument'
+    it "cant create new instrument" do
+
+      visit instruments_path
+      expect(page).not_to have_content 'New Instrument'
+    end
+
+    it "can create a review for instrument" do
+
+      FactoryGirl.create(:instrument, name:"Jupiter-6")
+
+      visit instruments_path
+      click_link "Jupiter-6"
+      click_link "Write a review"
+
+      fill_in('Topic', with:'Very nice')
+      fill_in('Body', with:'jeesjees')
+      fill_in('Score', with:4)
+      click_button('Create Review')
+
+      expect(page).to have_content('Very nice')
+
+    end
   end
 end

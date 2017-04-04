@@ -38,7 +38,7 @@ describe "User" do
     end
 
     it "can create suggestions" do
-      click_link "Leave a suggestion"
+      visit new_suggestion_path
       fill_in('Topic', with:'add this')
       fill_in('Info', with:'yabbadabba')
       click_button('Create Suggestion')

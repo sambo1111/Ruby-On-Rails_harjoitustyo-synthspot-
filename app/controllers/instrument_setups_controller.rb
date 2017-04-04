@@ -20,7 +20,7 @@ class InstrumentSetupsController < ApplicationController
 
     @tag = Tag.new
     @tag.instrument_setup = @instrument_setup
-    
+
     @like = Like.new
 
     if @instrument_setup.likers.exclude? current_user
@@ -74,11 +74,16 @@ class InstrumentSetupsController < ApplicationController
   # DELETE /instrument_setups/1
   # DELETE /instrument_setups/1.json
   def destroy
-    @instrument_setup.setup_instruments.each do |inst| inst.destroy end
-    @instrument_setup.destroy
-    respond_to do |format|
-      format.html { redirect_to instrument_setups_url, notice: 'Instrument setup was successfully destroyed.' }
-      format.json { head :no_content }
+
+    if current_user
+      if current_user == @instrument_setup.user or current_user.admin? true
+        @instrument_setup.setup_instruments.each do |inst| inst.destroy end
+        @instrument_setup.destroy
+        respond_to do |format|
+          format.html { redirect_to instrument_setups_url, notice: 'Instrument setup was successfully destroyed.' }
+          format.json { head :no_content }
+        end
+      end
     end
   end
 

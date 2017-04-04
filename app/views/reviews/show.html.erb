@@ -4,6 +4,7 @@
   <h2><%= @review.topic %>
       <% if current_user == @review.user %>
         <%= link_to('Edit', edit_review_path(@review), class:"btn btn-primary") %>
+        <%= link_to('Delete', review_path(@review), method: :delete, class:"btn btn-danger") %>
       <% end %>
   </h2>
 </p>
