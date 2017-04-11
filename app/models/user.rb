@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :user_instruments
   has_many :instruments, through: :user_instruments
+
   has_many :instrument_setups
   has_many :suggestions
   has_many :messages
@@ -8,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :likes
 
   validates :username, uniqueness: true, length: {minimum: 3}
-  
+
   has_secure_password
 
   def self.search(content)
@@ -18,4 +19,5 @@ class User < ActiveRecord::Base
       User.where("username LIKE ?", "%#{content}%")
     end
   end
+
 end

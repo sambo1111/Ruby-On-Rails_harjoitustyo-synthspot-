@@ -1,0 +1,21 @@
+<h1> Deals for <%= session[:keyword] %> </h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Price now</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @deals.each do |deal| %>
+      <tr>
+        <td><%= link_to deal["title"], deal["viewItemURL"], :target => "_blank" %></td>
+        <td> <strong><%= deal["sellingStatus"]["currentPrice"]["__content__"] %> </strong>
+            <%= deal["sellingStatus"]["currentPrice"]["currencyId"] %> </td>
+        <td><%= deal["location"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

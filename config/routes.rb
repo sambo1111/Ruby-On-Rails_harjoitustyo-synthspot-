@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :manufacturers
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
+
+  get 'deals', to: 'deals#index'
+
   delete 'signout', to: 'sessions#destroy'
   root 'instruments#index'
 

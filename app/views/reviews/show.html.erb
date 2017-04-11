@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <h2><%= @review.topic %>
@@ -9,6 +9,10 @@
   </h2>
 </p>
 
+<p>
+  <strong>Writer:</strong> <%= link_to @review.user.username, @review.user %>
+</p>
+
 <div class="panel panel-default", style="width: 40%">
   <div class="panel-body">
       <%= @review.body %>
@@ -17,9 +21,15 @@
 
 <p>
   <strong>Score:</strong>
-  <%= @review.score %>
 </p>
 
+<!-- draw the stars -->
 <p>
-  <strong>Writer:</strong> <%= link_to @review.user.username, @review.user %>
+  <% for i in 1..@review.score %>
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  <% end %>
+
+  <% for i in 1..(10 - @review.score) %>
+    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+  <% end %>
 </p>

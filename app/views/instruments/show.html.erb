@@ -33,7 +33,15 @@
             <tr>
               <td><%= link_to r.topic, r %></td>
               <td><%= link_to r.user.username, r.user %> </td>
-              <td><%= r.score %> </td>
+              <td>
+                <% for i in 1..r.score %>
+                  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <% end %>
+
+                <% for i in 1..(10 - r.score) %>
+                  <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
@@ -49,3 +57,9 @@
 <% end %>
 
 <%= edit_and_destroy_buttons(@instrument) %>
+
+<% if current_user %>
+  <p>
+    <br> <%= link_to('View Ebay deals', deals_path, class:"btn btn-warning") %>
+  </p>
+<% end %>
