@@ -23,7 +23,9 @@ class Instrument < ActiveRecord::Base
   end
 
   def self.most_famous
-    Rails.cache.fetch("most_fam", expires_in: 60.minutes) {get_most_famous}
+    if SetupInstrument.first != nil
+      Rails.cache.fetch("most_fam", expires_in: 10.minutes) {get_most_famous}
+    end
   end
 
   def self.get_most_famous

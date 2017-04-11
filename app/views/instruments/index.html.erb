@@ -1,7 +1,9 @@
 <br>
 <div class="panel panel-default">
   <div class="panel-body">
-    Most famous instrument at the moment is <%= link_to Instrument.most_famous, Instrument.most_famous %> !
+    <% if SetupInstrument.first != nil %>
+      Most famous instrument at the moment is <%= link_to Instrument.most_famous, Instrument.most_famous %> !
+    <% end %>
   </div>
 </div>
 

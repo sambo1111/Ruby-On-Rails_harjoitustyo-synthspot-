@@ -10,7 +10,7 @@ describe "Reviews page" do
     click_button('Log in')
 
     inst = FactoryGirl.create(:instrument, name:"Jupiter-8")
-    Review.create(topic:"jee", body:"jou", user:user, instrument:inst)
+    Review.create(topic:"jee", body:"jou", user:user, instrument:inst, score:5)
     visit instruments_path
     click_link "Jupiter-8"
     click_link "jee"

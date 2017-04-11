@@ -16,6 +16,7 @@ describe "Instruments page" do
     FactoryGirl.create(:instrument, name:"TR-909", info:"joujou")
 
     visit instruments_path
+
     click_link "TR-909"
 
     expect(page).to have_content "joujou"
