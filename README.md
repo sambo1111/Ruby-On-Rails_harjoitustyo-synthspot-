@@ -1,4 +1,4 @@
-- [Linkki heroku-sovellukseen](morning-castle-98652.herokuapp.com)
+- [Linkki heroku-sovellukseen](https://morning-castle-98652.herokuapp.com)
 - [Käyttöohje](morning-castle-98652.herokuapp.com)
 
 [![Build Status](https://travis-ci.org/sambo1111/synthspot.png)](https://travis-ci.org/sambo1111/synthspot)
