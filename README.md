@@ -2,7 +2,7 @@ Heroku: morning-castle-98652.herokuapp.com
 
 [![Build Status](https://travis-ci.org/sambo1111/synthspot.png)](https://travis-ci.org/sambo1111/synthspot)
 
-# Projektin kuvaus
+# 1. Projektin kuvaus
 Sovellus on tietokanta musiikkilaitteille(esim. rumpukoneet, syntetisaattorit) ja niiden valmistajille. Sovelluksen tarkoitus on siis tarjota käyttäjillä tietoa eri musiikkilaitteista, niiden käyttötarkoituksista ja historiasta.
 
 Käyttäjät voivat tehdä oman omalle profiilisivulleen omaa studiotaan vastaavan studiosetupin tietokannassa olevista instrumenteista. He voivat myös selata muiden käyttäjien studiosetuppeja. Käyttäjien toimitoihin kuuluu myös laitteiden arviointi (review), jossa käyttäjä kirjoittaa oman kokemuksensa laitteesta. Muut voivat lukea näitä arvosteluja.
@@ -11,15 +11,15 @@ Käyttäjät voivat myös luoda tiettyyn käyttötarkoitukseen perustuvia laites
 
 ...
 
-# Testaus
+# 2. Testaus
 Testaus toteutetaan rspecillä ja capybaralla.
 
-# Luokkakaavio
+# 3. Luokkakaavio
 ![alt text](https://github.com/sambo1111/synthspot/blob/master/luokkakaavio_v2.jpg)
 
 ...
 
-# Tuntikirjanpito
+# 4. Tuntikirjanpito
 |Pvm|Tunnit|
 |---|------|
 |16.3|6h|
