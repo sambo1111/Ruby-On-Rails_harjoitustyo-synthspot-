@@ -15,12 +15,15 @@ Käyttäjät voivat myös luoda tiettyyn käyttötarkoitukseen perustuvia laites
 # 2. Testaus
 Testaus toteutetaan rspecillä ja capybaralla.
 
-# 3. Luokkakaavio
+# 3. API Integraatio
+Sovelluksessa on käytössä Ebay API. API on integroitu sovellukseen siten, että kun käyttäjä painaa jonkun instrumentin sivulla olevaa linkkiä "View Ebay Deals", tekee sovellus kyselyn rajapintaan. Kysely sisältää hakusanana instrumentin nimen ja kysely on kohdistettu Ebay:n tuotekategoriaan "Synthesizers". Kysely palauttaa listan kauppoja (deals), jotka vastaavat kyselyyn syötettyjä tietoja.
+
+# 4. Luokkakaavio
 ![alt text](https://github.com/sambo1111/synthspot/blob/master/luokkakaavio_v2.jpg)
 
 ...
 
-# 4. Tuntikirjanpito
+# 5. Tuntikirjanpito
 |Pvm|Tunnit|
 |---|------|
 |16.3|6h|
@@ -35,3 +38,4 @@ Testaus toteutetaan rspecillä ja capybaralla.
 |05.4|2h|
 |11.4|4h|
 |12.4|2h|
+|18.4|3h|
