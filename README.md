@@ -1,7 +1,7 @@
-- [Linkki heroku-sovellukseen](https://morning-castle-98652.herokuapp.com)
-- [Käyttöohje](morning-castle-98652.herokuapp.com)
-
 [![Build Status](https://travis-ci.org/sambo1111/synthspot.png)](https://travis-ci.org/sambo1111/synthspot)
+
+- [Linkki heroku-sovellukseen](https://morning-castle-98652.herokuapp.com)
+- [Käyttöohje](https://github.com/sambo1111/synthspot/blob/master/k%C3%A4ytt%C3%B6ohje.md)
 
 # 1. Projektin kuvaus
 Sovellus on tietokanta musiikkilaitteille(esim. rumpukoneet, syntetisaattorit) ja niiden valmistajille. Sovelluksen tarkoitus on siis tarjota käyttäjillä tietoa eri musiikkilaitteista, niiden käyttötarkoituksista ja historiasta.
