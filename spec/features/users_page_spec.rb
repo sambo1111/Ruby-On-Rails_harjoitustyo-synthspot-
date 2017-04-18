@@ -4,12 +4,23 @@ describe "User" do
 
   describe "who has signed in" do
     let!(:user) { FactoryGirl.create(:user, username:"eetvart", admin:false) }
+    let!(:inst) { FactoryGirl.create(:instrument, name:"DR-550") }
 
     before :each do
+
       visit signin_path
       fill_in('username', with:'eetvart')
       fill_in('password', with:'salainen')
       click_button('Log in')
+    end
+
+    it "can edit his biography" do
+
+      click_link "Edit"
+      fill_in('Bio', with:'this is my biography')
+      click_button('Update User')
+      expect(page).to have_content 'eetvart'
+      expect(page).to have_content 'this is my biography'
     end
 
     it "index page lists all users" do
@@ -27,7 +38,6 @@ describe "User" do
     end
 
     it "can add instruments to his setup" do
-      FactoryGirl.create(:instrument, name:"DR-550")
       click_link "My User"
       click_link "Add instrument to studio"
 
@@ -35,6 +45,19 @@ describe "User" do
       click_button('Create User instrument')
       expect(page).to have_content 'eetvart'
       expect(page).to have_content 'DR-550'
+    end
+
+    it "can delete instruments from his setup" do
+      UserInstrument.create(instrument:inst, user:user)
+
+      click_link "My User"
+      expect(page).to have_content 'DR-550'
+
+      expect{
+        click_link("Delete")
+      }.to change{UserInstrument.count}.from(1).to(0)
+
+      expect(page).not_to have_content 'DR-550'
     end
 
     it "can create suggestions" do

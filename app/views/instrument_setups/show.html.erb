@@ -19,7 +19,7 @@
     <%= form_for(@like) do |f| %>
       <%= f.hidden_field :instrument_setup_id %>
       <%= f.hidden_field :user_id %>
-      <%= button_tag(type: 'submit', class: "button-like", :disabled => @instrument_setup.likers.include?(current_user) == true) do %>
+      <%= button_tag(type: 'submit', id: "like_btn", class: "button-like", :disabled => @instrument_setup.likers.include?(current_user) == true) do %>
         <i class="glyphicon glyphicon-thumbs-up"></i> &nbsp; <%= @instrument_setup.likes.count %>
       <% end %>
     <% end %>

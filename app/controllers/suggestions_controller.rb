@@ -40,20 +40,6 @@ class SuggestionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /suggestions/1
-  # PATCH/PUT /suggestions/1.json
-  def update
-    respond_to do |format|
-      if @suggestion.update(suggestion_params)
-        format.html { redirect_to @suggestion, notice: 'Suggestion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @suggestion }
-      else
-        format.html { render :edit }
-        format.json { render json: @suggestion.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /suggestions/1
   # DELETE /suggestions/1.json
   def destroy

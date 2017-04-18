@@ -30,6 +30,12 @@ describe "Instrument setups page" do
     expect(page).to have_content 'Jupiter-8'
   end
 
+  it "allows user to give like to instrument setup" do
+    expect{
+      click_button('like_btn')
+    }.to change{Like.count}.from(0).to(1)
+  end
+
   it "allows user to add tags to the setup" do
 
     fill_in('tag_name', with:"best")

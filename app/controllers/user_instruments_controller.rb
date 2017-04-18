@@ -19,9 +19,6 @@ class UserInstrumentsController < ApplicationController
     @user_instrument = UserInstrument.new
   end
 
-  # GET /user_instruments/1/edit
-  def edit
-  end
 
   # POST /user_instruments
   # POST /user_instruments.json
@@ -41,26 +38,12 @@ class UserInstrumentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /user_instruments/1
-  # PATCH/PUT /user_instruments/1.json
-  def update
-    respond_to do |format|
-      if @user_instrument.update(user_instrument_params)
-        format.html { redirect_to @user_instrument, notice: 'User instrument was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user_instrument }
-      else
-        format.html { render :edit }
-        format.json { render json: @user_instrument.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /user_instruments/1
   # DELETE /user_instruments/1.json
   def destroy
     @user_instrument.destroy
     respond_to do |format|
-      format.html { redirect_to user_instruments_url, notice: 'User instrument was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user), notice: 'User instrument was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
