@@ -11,7 +11,7 @@ Kun käyttäjätunnus on luotu, voi käyttäjä kirjautua sisään tunnuksellaan
 ### 1.3 Uloskirjautuminen
 Käyttäjän uloskirjautuminen tapahtuu sivun oikeassa ylälaidassa olevasta napista "Sign Out"
 
-### 1.3 Instrumenttien lisääminen käyttäjäkohtaiseen studiokokoonpanoon
+### 1.4 Instrumenttien lisääminen käyttäjäkohtaiseen studiokokoonpanoon
 Käyttäjä voi halutessaan lisätä henkilökohtaiseen, käyttäjän profiilisivulla esitettävään, studiokokoonpanoonsa instrumentteja menemällä omalle profiilisivulleen sivun oikeassa ylälaidassa olevasta linkistä "My User" ja painamalla linkkiä "Add Instrument to Studio".
 
 Sivulla on dropdown-painike, jota painamalla avautuu lista tietokannassa olevista instrumenteista. Käyttäjä voi valita haluamansa instrumentin näistä vaihtoehdoista ja lisätä sen studiokokoonpanoonsa painamalla nappia "Create User Instrument".
@@ -53,27 +53,27 @@ Sivulle avautuva näkymä sisältää dropdown-valikon tietokannassa olevista in
 
 Näkymässä käyttäjä voi myös lisätä tageja kokoonpanolle kirjoittamalla tagin nimen kenttään "Add Tag" ja painamalla nappia "Create Tag".
 
-## 5. Administraattorin toiminnot
+## 6. Administraattorin toiminnot
 Seuraavat toiminnot vaativat admin-käyttäjätunnuksen
 
-### 5.1 Tietokantakohteiden lisääminen
+### 6.1 Tietokantakohteiden lisääminen
 
-#### 5.1.1 Instrument
+#### 6.1.1 Instrument
 Instrumenttien lisääminen tietokantaan tapahtuu menemällä instrumenttien sivulle navigaatiopalkin linkistä "Instrument" ja painamalla nappia "New Instrument".
 
 Lisättävän instrumentin nimi syötetään kenttään "Name", julkaisuvuosi kenttään "Year" ja instrumentin kuvaus kenttään "Info".
 Instrumenttiin voi liittää myös kuvan syöttämällä kuvan url-linkin kenttään "Image Link". Instrumentin valmistaja valitaan "Manufacturer"-dropdown painikkeesta ja instrumentin tyyppi "Type"-dropdown painikkeesta. Ttietokantakohteen tallennus tapahtuu painamalla nappia "Create Instrument".
 
-#### 5.1.2 Manufacturer
+#### 6.1.2 Manufacturer
 Valmistajien lisääminen tietokantaan tapahtuu menemällä valmistajien sivulle navigaatiopalkin linkistä "Manufacturer" ja painamalla nappia "New Manufacturer".
 
 Lisättävän valmistajan nimi syötetään kenttään "Name", perustamisvuosi kenttään "Year" ja valmistajan kuvaus kenttään "Info". Tietokantakohteen tallennus tapahtuu painamalla nappia "Create Manufacturer".
 
-#### 5.1.3 Type
+#### 6.1.3 Type
 Instrumenttityypin lisääminen tietokantaan tapahtuu menemällä tyyppien sivulle navigaatiopalkin linkistä "Type" ja painamalla nappia "New Type".
 
 Lisättävän tyypin nimi syötetään kenttään "Name" ja tyypin kuvaus kenttään "Info". Tietokantakohteen tallennus tapahtuu painamalla nappia "Create Type".
 
-### Ehdotusten tarkastelu ja poistaminen (suggestion)
+### 6.2 Ehdotusten tarkastelu ja poistaminen (suggestion)
 Käyttäjien lähettämät ehdotukset löytyvät sivulta "Suggestions". Ehdotusta voi tarkastella ja sen voi poistaa ehdotuksen sivulta, johon pääsee klikkaamalla ehdotuksen aihetta.
 
