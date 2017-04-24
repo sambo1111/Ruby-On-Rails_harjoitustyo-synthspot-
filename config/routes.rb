@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :manufacturers
   get 'signup', to: 'users#new'
   get 'signin', to: 'sessions#new'
+  get 'adminpanel', to: 'admin_panel#index'
 
   get 'deals', to: 'deals#index'
 

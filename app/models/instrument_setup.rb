@@ -6,6 +6,7 @@ class InstrumentSetup < ActiveRecord::Base
   has_many :likes
   has_many :likers, through: :likes, source: :user
 
+  validates :name, length: {minimum: 5}
   def self.search(content)
     if content == ""
       InstrumentSetup.all

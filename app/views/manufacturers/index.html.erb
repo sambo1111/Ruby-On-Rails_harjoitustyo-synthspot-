@@ -21,7 +21,3 @@
     <% end %>
   </tbody>
 </table>
-
-<% if current_user and current_user.admin? == true %>
-  <%= link_to('New Manufacturer', new_manufacturer_path, class:"btn btn-primary") %>
-<% end %>

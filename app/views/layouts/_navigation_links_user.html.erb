@@ -1,7 +1,7 @@
 <% if current_user %>
   <% if current_user.admin? == true %>
-    <li> <%= link_to suggestions_path do %>
-          <i class="glyphicon glyphicon-list-alt"></i> Suggestions
+    <li> <%= link_to adminpanel_path do %>
+          <i class="glyphicon glyphicon-text-background"></i> Admin Panel
         <% end %>
     </li>
   <% end %>

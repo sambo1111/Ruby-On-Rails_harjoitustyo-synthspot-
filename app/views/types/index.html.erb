@@ -14,7 +14,3 @@
     <% end %>
   </tbody>
 </table>
-
-<% if current_user and current_user.admin? == true %>
-  <%= link_to('New Instrument Type', new_type_path, class:"btn btn-primary") %>
-<% end %>

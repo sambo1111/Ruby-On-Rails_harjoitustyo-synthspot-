@@ -32,7 +32,3 @@
     <% end %>
   </tbody>
 </table>
-
-<% if current_user and current_user.admin? == true %>
-  <%= link_to('New Instrument', new_instrument_path, class:"btn btn-primary") %>
-<% end %>

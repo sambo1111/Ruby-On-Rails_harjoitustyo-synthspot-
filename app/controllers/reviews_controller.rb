@@ -61,7 +61,7 @@ class ReviewsController < ApplicationController
       if current_user == @review.user or current_user.admin? true
         @review.destroy
         respond_to do |format|
-          format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+          format.html { redirect_to @review.instrument, notice: 'Review was successfully destroyed.' }
           format.json { head :no_content }
         end
       end

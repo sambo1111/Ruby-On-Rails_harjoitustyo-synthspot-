@@ -34,7 +34,7 @@ class SuggestionsController < ApplicationController
         format.html { redirect_to @suggestion.user, notice: 'Suggestion was successfully created.' }
         format.json { render :show, status: :created, location: @suggestion.user }
       else
-        format.html { redirect_to @suggestion.user }
+        format.html { render :new }
         format.json { render json: @suggestion.errors, status: :unprocessable_entity }
       end
     end
