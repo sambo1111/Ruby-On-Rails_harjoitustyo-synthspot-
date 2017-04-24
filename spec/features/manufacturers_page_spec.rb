@@ -35,7 +35,7 @@ describe "Manufacturers page" do
 
     it "allows to create new manufacturer" do
 
-      visit manufacturers_path
+      visit adminpanel_path
       click_link "New Manufacturer"
       fill_in('Name', with:'Dave Smith')
       fill_in('Year', with:2000)

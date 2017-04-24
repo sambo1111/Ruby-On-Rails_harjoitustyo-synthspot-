@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def inst_types
-    Rails.cache.fetch("types", expires_in: 5.minutes) {Type.all}
+    #Rails.cache.fetch("types", expires_in: 5.minutes) {Type.all}
+    Type.all
   end
 end

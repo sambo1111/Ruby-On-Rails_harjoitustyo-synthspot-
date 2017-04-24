@@ -15,7 +15,7 @@ describe "Instrument types page" do
 
     it "create new instrument type" do
 
-      visit types_path
+      visit adminpanel_path
       click_link "New Instrument Type"
       fill_in('Name', with:'Synthesizers')
       fill_in('Info', with:'jepjep')
@@ -27,10 +27,10 @@ describe "Instrument types page" do
 
     it "destroy a type" do
 
-      FactoryGirl.create(:type)
+      type = FactoryGirl.create(:type)
 
-      visit types_path
-      click_link "Drum Machines"
+      visit '/types/1'
+
       expect{click_link("Destroy")}.to change{Type.count}.from(1).to(0)
       expect(page).not_to have_content("Drum Machines")
     end
@@ -39,8 +39,7 @@ describe "Instrument types page" do
 
       FactoryGirl.create(:type)
 
-      visit types_path
-      click_link "Drum Machines"
+      visit '/types/1'
       click_link "Edit"
 
       fill_in('Name', with:"Rummut")
@@ -63,17 +62,6 @@ describe "Instrument types page" do
     expect(page).to have_content 'Sequencers'
   end
 
-  it "allows user to go to instrument type's page" do
-
-    FactoryGirl.create(:type, name:"Drum Machines", info:"jeps")
-
-    visit types_path
-    click_link "Drum Machines"
-
-    expect(page).to have_content 'jeps'
-  end
-
-
   it "regular user cant create new instrument type" do
 
     FactoryGirl.create(:user, username:"regularuser", admin:false)
@@ -95,8 +83,7 @@ describe "Instrument types page" do
         manu1 = FactoryGirl.create(:manufacturer, name:"Arturia")
         FactoryGirl.create(:instrument, name:"Beatstep", manufacturer:manu1, type:type1)
 
-        visit types_path
-        click_link "Sequencers"
+        visit '/types/1'
 
         expect(page).to have_content 'Beatstep'
         click_link "Beatstep"

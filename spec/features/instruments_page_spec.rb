@@ -38,7 +38,7 @@ describe "Instruments page" do
 
       FactoryGirl.create(:manufacturer, name:"Korg")
       FactoryGirl.create(:type, name:"Romplers")
-      visit instruments_path
+      visit adminpanel_path
       click_link "New Instrument"
       fill_in('Name', with:'Wavestation')
       fill_in('Year', with:2000)
