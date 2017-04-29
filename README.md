@@ -40,3 +40,4 @@ Sovelluksessa on käytössä Ebay API. API on integroitu sovellukseen siten, ett
 |12.4|2h|
 |18.4|3h|
 |19.4|2h|
+|24.4|4h|
