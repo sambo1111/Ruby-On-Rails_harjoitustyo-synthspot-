@@ -2,12 +2,6 @@ class SetupInstrumentsController < ApplicationController
   before_action :set_setup_instrument, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, only: [:new, :create, :destroy]
 
-  # GET /setup_instruments
-  # GET /setup_instruments.json
-  def index
-    @setup_instruments = SetupInstrument.all
-  end
-
   # GET /setup_instruments/1
   # GET /setup_instruments/1.json
   def show

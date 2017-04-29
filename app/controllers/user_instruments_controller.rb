@@ -2,12 +2,6 @@ class UserInstrumentsController < ApplicationController
   before_action :set_user_instrument, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
 
-  # GET /user_instruments
-  # GET /user_instruments.json
-  def index
-    @user_instruments = UserInstrument.all
-  end
-
   # GET /user_instruments/1
   # GET /user_instruments/1.json
   def show

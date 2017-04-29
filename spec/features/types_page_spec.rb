@@ -50,6 +50,36 @@ describe "Instrument types page" do
       expect(page).to have_content("Rummut")
       expect(page).to have_content("very kool, nice")
     end
+
+    it "displays error messages and doesnt save after unsuccesful edit" do
+
+      FactoryGirl.create(:type)
+
+      visit '/types/1'
+      click_link "Edit"
+
+      fill_in('Name', with:"")
+      fill_in('Info', with:"very kool, nice")
+      click_button('Update Type')
+
+      expect(page).to have_content("Name is too short (minimum is 2 characters)")
+
+      visit '/types/1'
+      expect(page).to have_content("Drum Machines")
+      expect(page).to have_content("joda joda")
+    end
+
+    it "displays error messages and doesnt save after unsuccesful create" do
+
+      visit adminpanel_path
+      click_link "New Instrument Type"
+      fill_in('Name', with:'') #empty name
+      fill_in('Info', with:'jepjep')
+      click_button('Create Type')
+
+      expect(Type.count).to eq(0)
+      expect(page).to have_content 'Name is too short (minimum is 2 characters)'
+    end
   end
 
   it "lists existing instrument types" do

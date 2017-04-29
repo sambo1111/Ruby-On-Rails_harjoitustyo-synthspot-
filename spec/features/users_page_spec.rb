@@ -86,5 +86,17 @@ describe "User" do
       expect(page).to have_content 'User was successfully created.'
     end
 
+    it "is not added and new user page is rendered if failure in credidentials" do
+
+      visit signup_path
+      fill_in('Username', with:'bestuser')
+      fill_in('Password', with:'') #blank password
+      fill_in('Password confirmation', with:'salis')
+      click_button("Create User")
+
+      expect(User.count).to eq(0)
+      expect(page).to have_content "Password can't be blank"
+    end
+
   end
 end

@@ -1,13 +1,6 @@
 <h2>
   <%= @instrument_setup.name %>
-  <% if current_user == @instrument_setup.user %>
-    <%= link_to('Edit name and info', edit_instrument_setup_path(@instrument_setup), class:"btn btn-primary") %>
-  <% end %>
 </h2>
-
-<p>
-  <%= @instrument_setup.info %>
-</p>
 
 <p>
   <strong>Created by: </strong>
@@ -25,6 +18,12 @@
     <% end %>
   </div>
 </div>
+
+<h3> Description </h3>
+
+<p>
+  <%= @instrument_setup.info %>
+</p>
 
 <h3> Instruments in this setup </h3>
 <table class="table table-hover">
@@ -80,7 +79,10 @@
               <%= f.submit %>
             <% end %>
 
-          <br><%= link_to('Delete this setup', @instrument_setup, method: :delete, data: {confirm: 'Are you sure?' }, class:"btn btn-danger") %>
+          <br>
+          <%= link_to('Edit name and info', edit_instrument_setup_path(@instrument_setup), class:"btn btn-primary") %>
+          <%= link_to('Delete this setup', @instrument_setup, method: :delete, data: {confirm: 'Are you sure?' }, class:"btn btn-danger") %>
+
         </div>
       </div>
     </div>

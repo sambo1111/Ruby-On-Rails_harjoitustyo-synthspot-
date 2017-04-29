@@ -48,7 +48,7 @@ describe "Instruments page" do
 
       click_button('Create Instrument')
 
-      expect(Manufacturer.count).to eq(1)
+      expect(Instrument.count).to eq(1)
       expect(page).to have_content 'Wavestation'
 
     end
@@ -79,6 +79,7 @@ describe "Instruments page" do
       expect(page).to have_content 'yea boi'
 
     end
+
   end
 
   describe "regular user" do

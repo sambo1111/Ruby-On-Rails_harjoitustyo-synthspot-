@@ -2,9 +2,9 @@
 
 <p>
   <h2><%= @review.topic %>
-      <% if current_user == @review.user %>
+      <% if current_user == @review.user or current_user.admin? == true %>
         <%= link_to('Edit', edit_review_path(@review), class:"btn btn-primary") %>
-        <%= link_to('Delete', review_path(@review), method: :delete, class:"btn btn-danger") %>
+        <%= link_to('Delete', review_path(@review), method: :delete, data: {confirm: 'Are you sure?' }, class:"btn btn-danger") %>
       <% end %>
   </h2>
 </p>

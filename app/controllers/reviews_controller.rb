@@ -1,11 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, only: [:index, :show, :new, :create]
-  # GET /reviews
-  # GET /reviews.json
-  def index
-    @reviews = Review.all
-  end
 
   # GET /reviews/1
   # GET /reviews/1.json
@@ -56,14 +51,11 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
-
-    if current_user
-      if current_user == @review.user or current_user.admin? true
-        @review.destroy
-        respond_to do |format|
-          format.html { redirect_to @review.instrument, notice: 'Review was successfully destroyed.' }
-          format.json { head :no_content }
-        end
+    if current_user == @review.user or current_user.admin? == true
+      @review.destroy
+      respond_to do |format|
+        format.html { redirect_to @review.instrument, notice: 'Review was successfully destroyed.' }
+        format.json { head :no_content }
       end
     end
   end

@@ -50,6 +50,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'capybara'
   gem 'launchy'
+  gem 'webmock'
 end
 
 group :production do

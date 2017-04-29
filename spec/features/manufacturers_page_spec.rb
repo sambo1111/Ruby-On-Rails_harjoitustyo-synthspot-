@@ -72,6 +72,38 @@ describe "Manufacturers page" do
       expect(page).to have_content 'Manufacturer was successfully updated.'
       expect(page).to have_content 'new info'
     end
+
+    it "displays error messages and doesnt save after unsuccesful edit" do
+
+      FactoryGirl.create(:manufacturer)
+      visit manufacturers_path
+      click_link "Roland"
+      expect(page).to have_content 'yadda yadda'
+
+      click_link "Edit"
+      fill_in('Name', with:'') #empty name
+      click_button("Update Manufacturer")
+      expect(page).to have_content 'Name is too short (minimum is 2 characters)'
+
+      visit manufacturers_path
+      click_link "Roland"
+      expect(page).to have_content 'yadda yadda'
+
+    end
+
+    it "displays error messages and doesnt save after unsuccesful create" do
+
+      visit adminpanel_path
+      click_link "New Manufacturer"
+      fill_in('Name', with:'') #empty name
+      fill_in('Year', with:2000)
+      fill_in('Info', with:'joop')
+      click_button('Create Manufacturer')
+
+      expect(Manufacturer.count).to eq(0)
+      expect(page).to have_content 'Name is too short (minimum is 2 characters)'
+
+    end
   end
 
   it "regular user cant create new manufacturer" do

@@ -35,6 +35,8 @@ class InstrumentsController < ApplicationController
   # POST /instruments
   # POST /instruments.json
   def create
+    @types = Type.all
+    @manufacturers = Manufacturer.all
     @instrument = Instrument.new(instrument_params)
 
     respond_to do |format|
