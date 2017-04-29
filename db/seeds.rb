@@ -1,1 +1,1 @@
-User.create(name:"admin", password:"iamgod", password_confirmation:"iamgod", admin:true)
+User.create(username:"admin", password:"iamgod", password_confirmation:"iamgod", admin:true)
