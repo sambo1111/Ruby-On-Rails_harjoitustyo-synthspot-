@@ -61,6 +61,20 @@
 - Kirjoita aihe ja sisältö
 - Paina create suggestion
 
+### 6. Pikaviestit (Messages)
+Pikavistit löytyvät sivulta "Messages"
+#### 6.1 Viestin lähettäminen
+- Paina linkkiä "Messages"
+- Paina nappia "New Message"
+- Kirjoita aihe kohtaan "Topic" ja sisältö kohtaan "Body"
+- Kirjoita vastaanottajan nimi kohtaan "Receiver name"
+- Paina nappia "Create message"
+
+### 6.2 Viestin lukeminen
+- Paina linkkiä "Messages"
+- Löydät saapuneet viestit kohdasta "Received messages"
+- Paina jonkun saapuneen viestin nimeä päästäksesi tarkastelemaan sitä
+
 ## Admin käyttäjän toiminnot
 
 ### 1. Admin Panel
