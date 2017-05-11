@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/sambo1111/synthspot.png)](https://travis-ci.org/sambo1111/synthspot)
 
-![Coveralls](https://coveralls.io/repos/github/sambo1111/synthspot/badge.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/sambo1111/synthspot/badge.svg?branch=master)](https://coveralls.io/github/sambo1111/synthspot?branch=master)
 
 #### ADMIN KÄYTTÄJÄTUNNUS: tunnus/salasana: admin/iamgod
 - [Linkki heroku-sovellukseen](https://morning-castle-98652.herokuapp.com)
