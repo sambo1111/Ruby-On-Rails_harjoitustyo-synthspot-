@@ -75,6 +75,11 @@ Pikavistit löytyvät sivulta "Messages"
 - Löydät saapuneet viestit kohdasta "Received messages"
 - Paina jonkun saapuneen viestin nimeä päästäksesi tarkastelemaan sitä
 
+### 6.3 API:n käyttö
+- Mene jonkun instrumentin sivulle
+- Paina linkkiä "View Ebay deals"
+- Paina jonkun "dealin" nimeä päästäksesi sen sivuille
+
 ## Admin käyttäjän toiminnot
 
 ### 1. Admin Panel
