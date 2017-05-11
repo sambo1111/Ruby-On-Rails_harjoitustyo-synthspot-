@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/sambo1111/synthspot.png)](https://travis-ci.org/sambo1111/synthspot)
 
+# ADMIN KÄYTTÄJÄTUNNUS: tunnus/salasana: admin/iamgod
 - [Linkki heroku-sovellukseen](https://morning-castle-98652.herokuapp.com)
 - [Käyttöohje](https://github.com/sambo1111/synthspot/blob/master/k%C3%A4ytt%C3%B6ohje.md)
 
