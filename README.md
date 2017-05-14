@@ -13,6 +13,8 @@ Käyttäjät voivat tehdä oman omalle profiilisivulleen omaa studiotaan vastaav
 
 Käyttäjät voivat myös luoda tiettyyn käyttötarkoitukseen perustuvia laitesetuppeja (eri asia kuin studiosetup). Tällainen käyttötarkoitus voi olla esimerkiksi setuppi jonkin tietynlaisen musiikin tuottamiseen. Muut käyttäjät voivat tykätä näistä laitesetupeista.
 
+Sovellukseen on myös toteutettu pikaviestijärjestelmä, jonka avulla käyttäjät voivat keskustella toistensa kanssa. Käyttäjät voivat myös lähettää ylläpidolle ehdotuksia (suggestion), jos he kokevat, että tietokannasta puuttuu jotain.
+
 ...
 
 # 2. Testaus
